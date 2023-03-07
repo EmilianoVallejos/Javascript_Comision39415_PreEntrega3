@@ -94,9 +94,20 @@ function agregarProductoAlCarrito(producto) {
     carrito_render();
 }
 
-let btn = document.getElementsByClassName("buttonPromoFlex");
-//llamando al elemento botón COMPRAR -por clase-
+//-----------------------------// Eliminar un producto del carrito
+function eliminarProductoDelCarrito(producto) {
+    const index = carrito_de_compras.indexOf(producto);
+    if (index !== -1) {
+    carrito_de_compras.splice(index, 1);
+    }
+}
 
+
+//llamando al elemento botón COMPRAR -por clase-
+let btn = document.getElementsByClassName("buttonPromoFlex");
+
+
+/*
 for(let boton of btn) {
     boton.addEventListener("click", function() {
         // BUSCAR PRODUCTO SEGUN ID
@@ -109,5 +120,9 @@ for(let boton of btn) {
         }
     });
 }
+*/
 
 
+for(let boton of btn) {
+    boton.addEventListener("click", agregarProductoAlCarrito)
+}
